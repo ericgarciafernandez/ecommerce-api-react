@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [productos, setProductos] = useState([]);
@@ -8,13 +9,14 @@ function App() {
       .then((value) => setProductos(value));
   }, []);
   return (
-    <div className="text-2xl font-bold text-center text-green-600">
-      Test api productos
-      <div>
-        <p>Productos: </p>
-        {
-          productos.map((el) => el.name)
-        }
+    <div className="container w-1/2 mx-auto text-2xl font-bold text-center text-green-600">
+      <Navbar />
+      <div className="mt-6">
+        <ul>
+          {
+            productos.map((el) => <li>{el.name}</li>)
+          }
+        </ul>
       </div>
     </div>
   );
