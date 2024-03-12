@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
+import Card from "./components/Card";
 
 function App() {
   const [productos, setProductos] = useState([]);
@@ -9,14 +10,21 @@ function App() {
       .then((value) => setProductos(value));
   }, []);
   return (
-    <div className="container w-1/2 mx-auto text-2xl font-bold text-center text-green-600">
+    <div className="container-full mx-auto text-2xl font-bold text-center">
       <Navbar />
       <div className="mt-6">
-        <ul>
+        <p>Lorem ipsum</p>
           {
-            productos.map((el) => <li>{el.name}</li>)
+          productos.map((el) =>
+            <Card
+              name={el.name}
+              description={el.description}
+              price={el.price}
+              stock={el.stock}
+              image={el.image}
+              category={el.category}
+            />)
           }
-        </ul>
       </div>
     </div>
   );
