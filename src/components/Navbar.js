@@ -19,7 +19,7 @@ function Navbar() {
         <button
           data-collapse-toggle="mega-menu-full-cta"
           type="button"
-          class="bg-secondary inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-text rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-text rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
           aria-controls="mega-menu-full-cta"
           aria-expanded="false"
           onClick={handleDropDown}
@@ -43,7 +43,7 @@ function Navbar() {
         </button>
         <div
           id="mega-menu-full-cta"
-          class={`bg-background items-center justify-between w-full md:flex md:w-auto md:order-1 ${
+          class={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
             isOpen ? "block" : "hidden"
           } `}
         >
