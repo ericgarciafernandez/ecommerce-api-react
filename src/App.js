@@ -1,33 +1,25 @@
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Product from "./components/Product";
-import Background from "./components/Background";
-import { Carousel } from "flowbite-react";
+import Carrousel from "./components/Carousel";
+import Category from "./components/Category";
+import Footer from "./components/Footer";
 
 function App() {
-  const [productos, setProductos] = useState([]);
+  const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_SERVER}/productos`)
+    fetch(`${process.env.REACT_APP_SERVER}/products`)
       .then((result) => result.json())
-      .then((value) => setProductos(value));
+      .then((value) => setProducts(value));
   }, []);
   return (
     <div className="w-full mx-auto text-2xl font-bold text-center">
       <Navbar />
-      <Background />
-      {/* <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
-        <Carousel>
-          <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />
-          <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />
-          <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />
-          <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />
-          <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />
-        </Carousel>
-      </div> */}
-      <div className="mt-6">
-        <p>Lorem ipsum</p>
-        {productos.map((el) => (
+      <Carrousel />
+      <div className="my-12 flex flex-wrap justify-center gap-6">
+        {products.map((el, index) => (
           <Product
+            key={index}
             name={el.name}
             description={el.description}
             price={el.price}
@@ -37,6 +29,7 @@ function App() {
           />
         ))}
       </div>
+      <Footer />
     </div>
   );
 }
