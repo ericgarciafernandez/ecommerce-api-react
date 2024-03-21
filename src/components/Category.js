@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Navbar from "./Navbar";
 import Product from "./Product";
 
 function Component() {
@@ -11,19 +12,20 @@ function Component() {
       .then((value) => setProduct(value));
   }, []);
   return (
-    <div className="mt-6">
-      <p className="text-2xl text-center uppercase">{category}</p>
+    <div>
+      <Navbar />
+      <p className="mt-6 text-2xl text-center font-bold uppercase">
+        {category}
+      </p>
       <div className="w-5/6 mx-auto my-12 flex flex-wrap justify-center gap-6">
         {product
           ? product.map((el, index) => (
               <Product
-                key={index}
+                key={el.id}
+                id={el.id}
                 name={el.name}
-                description={el.description}
                 price={el.price}
-                stock={el.stock}
                 image={el.image}
-                category={el.category}
               />
             ))
           : ""}

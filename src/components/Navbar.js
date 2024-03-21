@@ -7,7 +7,7 @@ function Component() {
     setIsOpen(!isOpen);
   };
   const linkClass =
-    "block py-2 px-3 text-gray-900 border-b-2 border-secondary";
+    "block py-2 px-3 text-gray-900 border-b-2 border-secondary md:border-0";
   return (
     <nav className="bg-background">
       <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
@@ -44,21 +44,30 @@ function Component() {
         </button>
         <div
           id="mega-menu-full-cta"
-          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${isOpen ? "block" : "hidden"
-            } `}
+          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
+            isOpen ? "block" : "hidden"
+          } `}
         >
           <ul className="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
             <li>
-              <Link to={'/categories/interior'} className={linkClass}>Interior</Link>
+              <Link to={"/categories/interior"} className={linkClass}>
+                Interior
+              </Link>
             </li>
             <li>
-              <Link to={'/categories/exterior'} className={linkClass}>Exterior</Link>
+              <Link to={"/categories/exterior"} className={linkClass}>
+                Exterior
+              </Link>
             </li>
             <li>
-              <Link to={'/categories/jardín'} className={linkClass}>Jardín</Link>
+              <Link to={"/categories/jardín"} className={linkClass}>
+                Jardín
+              </Link>
             </li>
             <li>
-              <Link to={'/categories/hierbas'} className={linkClass}>Hierbas</Link>
+              <Link to={"/categories/hierbas"} className={linkClass}>
+                Hierbas
+              </Link>
             </li>
             <li>
               <a href="#" className={linkClass}>
