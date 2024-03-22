@@ -11,12 +11,12 @@ function Component() {
   return (
     <nav className="bg-background">
       <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-        <a
-          href="https://flowbite.com"
+        <Link
+          to={"/"}
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <img src="/plant.svg" className="h-6" />
-        </a>
+        </Link>
         <button
           data-collapse-toggle="mega-menu-full-cta"
           type="button"
@@ -44,9 +44,8 @@ function Component() {
         </button>
         <div
           id="mega-menu-full-cta"
-          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
-            isOpen ? "block" : "hidden"
-          } `}
+          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${isOpen ? "block" : "hidden"
+            } `}
         >
           <ul className="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
             <li>

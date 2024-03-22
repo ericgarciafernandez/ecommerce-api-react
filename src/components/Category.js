@@ -4,13 +4,23 @@ import Navbar from "./Navbar";
 import Product from "./Product";
 
 function Component() {
-  const { category } = useParams();
   const [product, setProduct] = useState([]);
+  const { category } = useParams();
+
+  async function getCategory() {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_SERVER}/categories/${category}`);
+      const value = await response.json();
+      setProduct(value);
+    } catch (error) {
+      console.log('Error fetching data', error);
+    }
+  }
+
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_SERVER}/categories/${category}`)
-      .then((result) => result.json())
-      .then((value) => setProduct(value));
-  }, []);
+    getCategory();
+  }, [category]);
+
   return (
     <div>
       <Navbar />
@@ -20,14 +30,14 @@ function Component() {
       <div className="w-5/6 mx-auto my-12 flex flex-wrap justify-center gap-6">
         {product
           ? product.map((el, index) => (
-              <Product
-                key={el.id}
-                id={el.id}
-                name={el.name}
-                price={el.price}
-                image={el.image}
-              />
-            ))
+            <Product
+              key={el.id}
+              id={el.id}
+              name={el.name}
+              price={el.price}
+              image={el.image}
+            />
+          ))
           : ""}
       </div>
     </div>

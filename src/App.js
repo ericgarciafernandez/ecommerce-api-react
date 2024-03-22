@@ -2,16 +2,25 @@ import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Product from "./components/Product";
 import Carrousel from "./components/Carousel";
-import Category from "./components/Category";
 import Footer from "./components/Footer";
 
 function App() {
   const [products, setProducts] = useState([]);
+
+  async function getProducts() {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_SERVER}/products`);
+      const value = await response.json();
+      setProducts(value);
+    } catch (error) {
+      console.error('Error fetching data', error);
+    }
+  }
+
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_SERVER}/products`)
-      .then((result) => result.json())
-      .then((value) => setProducts(value));
+    getProducts();
   }, []);
+
   return (
     <div className="w-full mx-auto">
       <Navbar />
