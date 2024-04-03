@@ -49,22 +49,22 @@ function Component() {
         >
           <ul className="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
             <li>
-              <Link to={"/categories/interior"} className={linkClass}>
+              <Link to={"/categorias/interior"} className={linkClass}>
                 Interior
               </Link>
             </li>
             <li>
-              <Link to={"/categories/exterior"} className={linkClass}>
+              <Link to={"/categorias/exterior"} className={linkClass}>
                 Exterior
               </Link>
             </li>
             <li>
-              <Link to={"/categories/jardín"} className={linkClass}>
+              <Link to={"/categorias/jardín"} className={linkClass}>
                 Jardín
               </Link>
             </li>
             <li>
-              <Link to={"/categories/hierbas"} className={linkClass}>
+              <Link to={"/categorias/hierbas"} className={linkClass}>
                 Hierbas
               </Link>
             </li>

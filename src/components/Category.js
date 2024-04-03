@@ -9,7 +9,7 @@ function Component() {
 
   async function getCategory() {
     try {
-      const response = await fetch(`${process.env.REACT_APP_SERVER}/categories/${category}`);
+      const response = await fetch(`${process.env.REACT_APP_SERVER}/categorias/${category}`);
       const value = await response.json();
       setProduct(value);
     } catch (error) {
