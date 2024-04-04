@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useCartStore from "../store/cart";
 
 function Component() {
   const [isOpen, setIsOpen] = useState(false);
+  const cart = useCartStore((state) => state.cart);
   const handleDropDown = () => {
     setIsOpen(!isOpen);
   };
@@ -44,8 +46,9 @@ function Component() {
         </button>
         <div
           id="mega-menu-full-cta"
-          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${isOpen ? "block" : "hidden"
-            } `}
+          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
+            isOpen ? "block" : "hidden"
+          } `}
         >
           <ul className="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
             <li>
@@ -76,6 +79,7 @@ function Component() {
             <li>
               <a href="#" className={linkClass}>
                 <img src="/carrito.svg" className="h-6" />
+                <p className="text-center absolute">{cart}</p>
               </a>
             </li>
           </ul>

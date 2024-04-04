@@ -17,7 +17,7 @@ function Component({ id, name, price, image }) {
             {price}€
           </span>
           <button className="text-sm rounded-lg bg-accent px-5 py-2.5 text-center text-text ">
-            Add to cart
+            Ver producto
           </button>
         </div>
       </Card>
