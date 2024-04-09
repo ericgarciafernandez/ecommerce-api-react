@@ -5,6 +5,7 @@ import App from "./App";
 import Category from "./components/Category";
 import Details from "./components/Details";
 import Cart from "./components/Cart";
+import Stripe from "./components/Stripe";
 import "./index.css";
 import "@fontsource/montserrat";
 
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/carrito",
     element: <Cart />,
+  },
+  {
+    path: "/checkout",
+    element: <Stripe />,
   },
 ]);
 
