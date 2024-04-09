@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Component({ id, name, price, image }) {
   return (
-    <Link to={`/details/${id}`}>
+    <Link to={`/detalles/${id}`}>
       <Card
         className="w-80 bg-secondary"
         imgAlt="Apple Watch Series 7 in colors pink, silver, and black"

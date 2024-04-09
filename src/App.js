@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import Navbar from "./components/Navbar";
 import Product from "./components/Product";
 import Carrousel from "./components/Carousel";
-import Footer from "./components/Footer";
+import Layout from "./components/Layout";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -13,7 +12,7 @@ function App() {
       const value = await response.json();
       setProducts(value);
     } catch (error) {
-      console.error('Error fetching data', error);
+      console.error("Error fetching data", error);
     }
   }
 
@@ -22,8 +21,7 @@ function App() {
   }, []);
 
   return (
-    <div className="w-full mx-auto">
-      <Navbar />
+    <Layout>
       <Carrousel />
       <div className="w-5/6 mx-auto my-12 flex flex-wrap justify-center gap-6">
         {products.map((el, index) => (
@@ -36,8 +34,7 @@ function App() {
           />
         ))}
       </div>
-      <Footer />
-    </div>
+    </Layout>
   );
 }
 
