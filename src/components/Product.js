@@ -16,7 +16,7 @@ function Component({ id, name, price, image }) {
           <span className="text-xl font-bold text-gray-900 dark:text-white">
             {price}€
           </span>
-          <button className="text-sm rounded-lg bg-accent px-5 py-2.5 text-center text-text ">
+          <button className="text-sm rounded-lg bg-accent px-5 py-2.5 text-center text-text">
             Ver producto
           </button>
         </div>
