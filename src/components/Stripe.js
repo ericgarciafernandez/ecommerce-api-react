@@ -5,8 +5,11 @@ import Checkout from "./Checkout";
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUBLIC_KEY}`);
 
 function Component() {
+  const appearance = {
+    theme: 'stripe',
+  };
   return (
-    <Elements stripe={stripePromise}>
+    <Elements options={appearance} stripe={stripePromise}>
       <Checkout />
     </Elements>
   );
