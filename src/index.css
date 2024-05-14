@@ -6,3 +6,8 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: #EDFEED;
 }
+
+img{
+    height: 20rem;
+    object-fit: cover;
+}
