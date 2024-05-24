@@ -6,6 +6,25 @@ function Component() {
   const totalPrice = useCartStore((state) => state.totalPrice);
   console.log(totalPrice);
   console.log(cart);
+
+  async function handleSubmit() {
+    console.log('click');
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_SERVER}/create-checkout-session`, {
+        method: 'POST'
+      }
+      );
+      const value = await response.json();
+      console.log(value);
+      if (value.url) {
+        window.location.href = value.url; // Redirigir a la URL proporcionada
+      }
+    } catch (error) {
+      console.log("Error fetching data", error);
+    }
+  }
+
   return (
     <Layout>
       <div className="mt-6">
@@ -22,10 +41,11 @@ function Component() {
               </div>
             ))}
           </div>
-          <div className="w-full">
+          <div className="w-full flex flex-col">
             <p>
               Precio total: <span className="font-bold">{totalPrice}€</span>
             </p>
+            <span className="border-2 p-2 mt-2 bg-accent max-w-max" onClick={handleSubmit}>Pagar</span>
           </div>
         </div>
       </div>
