@@ -8,15 +8,20 @@ function Component() {
   console.log(cart);
 
   async function handleSubmit() {
-    console.log('click');
+    console.log("click");
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER}/create-checkout-session`, {
-        method: 'POST'
-      }
+        `${process.env.REACT_APP_SERVER}/create-checkout-session`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json", // Indicamos que el contenido es JSON
+          },
+          body: JSON.stringify(cart), // Enviamos el carrito como JSON
+        }
       );
       const value = await response.json();
-      console.log(value);
+
       if (value.url) {
         window.location.href = value.url; // Redirigir a la URL proporcionada
       }
@@ -45,7 +50,12 @@ function Component() {
             <p>
               Precio total: <span className="font-bold">{totalPrice}€</span>
             </p>
-            <span className="border-2 p-2 mt-2 bg-accent max-w-max" onClick={handleSubmit}>Pagar</span>
+            <span
+              className="border-2 p-2 mt-2 bg-accent max-w-max"
+              onClick={handleSubmit}
+            >
+              Pagar
+            </span>
           </div>
         </div>
       </div>
