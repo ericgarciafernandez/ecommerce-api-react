@@ -32,13 +32,13 @@ function Component() {
 
   return (
     <Layout>
-      <div className="mt-6">
-        <div className="w-5/6 mx-auto my-12 flex flex-wrap justify-center gap-6">
-          <p className="text-2xl w-full text-center">Mi carrito</p>
+      <p className="text-2xl w-full text-center">Mi carrito</p>
+      <div className="mt-6 flex">
+        <div className="w-1/2 mx-auto  flex flex-wrap  gap-6">
           <div>
             {cart.map((el, index) => (
               <div key={index} className="flex gap-6 mt-6 justify-start">
-                <img src={el.image} />
+                <img src={el.image} className="w-40 h-40" />
                 <div className="flex flex-col justify-between">
                   <p> {el.name}</p>
                   <p> {el.price}</p>
@@ -46,17 +46,17 @@ function Component() {
               </div>
             ))}
           </div>
-          <div className="w-full flex flex-col">
-            <p>
-              Precio total: <span className="font-bold">{totalPrice}€</span>
-            </p>
-            <span
-              className="border-2 p-2 mt-2 bg-accent max-w-max"
-              onClick={handleSubmit}
-            >
-              Pagar
-            </span>
-          </div>
+        </div>
+        <div className="w-1/2">
+          <p>
+            Precio total: <span className="font-bold">{totalPrice}€</span>
+          </p>
+          <button
+            className="rounded-xl p-3 mt-2 bg-accent max-w-max"
+            onClick={handleSubmit}
+          >
+            Pagar
+          </button>
         </div>
       </div>
     </Layout>

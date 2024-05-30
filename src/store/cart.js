@@ -1,6 +1,8 @@
 import { create } from "zustand";
+import { persist } from 'zustand/middleware'
 
-const useCartStore = create((set) => ({
+
+const useCartStore = create(persist((set) => ({
   cart: [],
   countCart: 0,
   totalPrice: 0,
@@ -11,6 +13,13 @@ const useCartStore = create((set) => ({
   updateCart: (newCart) => set({ countCart: newCart }),
   setTotalPrice: (price) =>
     set((state) => ({ totalPrice: state.totalPrice + price })),
-}));
+}),
+  {
+    name: 'cart-storage',
+    getStorage: () => localStorage,
+  }
+)
+
+);
 
 export default useCartStore;
