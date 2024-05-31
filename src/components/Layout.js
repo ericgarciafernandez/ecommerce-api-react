@@ -5,7 +5,10 @@ function Component({ children }) {
   return (
     <div className="w-full mx-auto">
       <Navbar />
-      {children}
+      <div className="min-h-screen">
+        {children}
+      </div>
+
       <Footer />
     </div>
   );

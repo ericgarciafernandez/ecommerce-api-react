@@ -23,14 +23,14 @@ function App() {
   return (
     <Layout>
       <Carrousel />
-      <div className="w-5/6 mx-auto my-12 flex flex-wrap justify-center gap-6">
-        {products.map((el, index) => (
+      <div className="container mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {products.map((product) => (
           <Product
-            key={el.id}
-            id={el.id}
-            name={el.name}
-            price={el.price}
-            image={el.image}
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            price={product.price}
+            image={product.image}
           />
         ))}
       </div>

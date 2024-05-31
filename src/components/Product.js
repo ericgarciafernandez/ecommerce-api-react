@@ -3,24 +3,14 @@ import { Link } from "react-router-dom";
 
 function Component({ id, name, price, image }) {
   return (
-    <Link to={`/detalles/${id}`}>
-      <Card
-        className="w-80 bg-secondary"
-        imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-        imgSrc={image}
-      >
-        <h5 className="font-semibold tracking-tight text-gray-900 dark:text-white">
-          {name}
-        </h5>
-        <div className="flex items-center justify-between gap-x-12">
-          <span className="text-xl font-bold text-gray-900 dark:text-white">
-            {price}€
-          </span>
-          <button className="text-sm rounded-lg bg-accent px-5 py-2.5 text-center text-text">
-            Ver producto
-          </button>
+    <Link to={`/detalles/${id}`} className="block w-full">
+      <div className="bg-secondary rounded-md shadow-md overflow-hidden transition duration-300 transform hover:scale-105">
+        <img src={image} alt={name} className="w-full h-48 object-cover" />
+        <div className="p-4">
+          <h5 className="text-lg font-semibold text-gray-900 mb-2">{name}</h5>
+          <p className="text-text">{price}€</p>
         </div>
-      </Card>
+      </div>
     </Link>
   );
 }

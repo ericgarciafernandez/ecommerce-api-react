@@ -34,32 +34,38 @@ function Component() {
 
   return (
     <Layout>
-      <div className="mt-6">
-        <div className="w-5/6 mx-auto my-12 flex flex-wrap justify-center gap-6">
-          {product
-            ? product.map((el, index) => (
-              <div
-                className="w-full flex flex-wrap justify-center gap-x-24"
-                key={el.id}
-              >
-                <img src={el.image} className="w-1/3" />
-                <div className="flex flex-wrap flex-col">
-                  <h2 className="text-2xl font-bold">{el.name}</h2>
-                  <p className="grow">{el.description}</p>
-                  <div className="flex items-center gap-x-12">
-                    <span className="text-2xl font-bold">{el.price}€</span>
-                    <button
-                      onClick={addProduct}
-                      className="text-sm rounded-lg bg-accent px-5 py-2.5 text-center text-text "
-                    >
-                      Add to cart
-                    </button>
-                  </div>
+      <div className="container mx-auto mt-12 p-6">
+        {product ? (
+          product.map((el) => (
+            <div
+              key={el.id}
+              className="flex flex-col md:flex-row items-center gap-8"
+            >
+              <img
+                src={el.image}
+                alt={el.name}
+                className="w-full mx-auto md:w-1/3 object-cover rounded-lg shadow-lg"
+              />
+              <div className="flex flex-col w-full md:w-1/3">
+                <h2 className="text-3xl font-bold text-text mb-4">{el.name}</h2>
+                <p className="text-text mb-6">{el.description}</p>
+                <div className="flex items-center justify-start gap-x-12">
+                  <span className="text-2xl font-bold text-primary">
+                    {el.price}€
+                  </span>
+                  <button
+                    onClick={addProduct}
+                    className="text-sm rounded-lg bg-primary text-white px-5 py-2.5 text-center hover:bg-accent transition duration-300"
+                  >
+                    Add to cart
+                  </button>
                 </div>
               </div>
-            ))
-            : ""}
-        </div>
+            </div>
+          ))
+        ) : (
+          <p className="text-center text-text">Loading product...</p>
+        )}
       </div>
     </Layout>
   );
