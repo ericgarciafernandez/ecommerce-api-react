@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Product from "./components/Product";
-import Carrousel from "./components/Carousel";
+import Banner from "./components/Banner";
 import Layout from "./components/Layout";
 
 function App() {
@@ -22,7 +22,8 @@ function App() {
 
   return (
     <Layout>
-      <Carrousel />
+      <Banner />
+      <h1 className="container mx-auto text-3xl">Nuestras mejores plantas</h1>
       <div className="container mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((product) => (
           <Product

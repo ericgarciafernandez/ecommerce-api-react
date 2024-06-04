@@ -41,11 +41,10 @@ function Component() {
               key={el.id}
               className="flex flex-col md:flex-row items-center gap-8"
             >
-              <img
-                src={el.image}
-                alt={el.name}
-                className="w-full mx-auto md:w-1/3 object-cover rounded-lg shadow-lg"
-              />
+              <div className="w-1/3 h-96 flex flex-wrap justify-center content-center mx-auto rounded-lg shadow-xl bg-white">
+                <img src={el.image} alt={el.name} />
+              </div>
+
               <div className="flex flex-col w-full md:w-1/3">
                 <h2 className="text-3xl font-bold text-text mb-4">{el.name}</h2>
                 <p className="text-text mb-6">{el.description}</p>
@@ -55,7 +54,7 @@ function Component() {
                   </span>
                   <button
                     onClick={addProduct}
-                    className="text-sm rounded-lg bg-primary text-white px-5 py-2.5 text-center hover:bg-accent transition duration-300"
+                    className="text-sm rounded-lg bg-accent text-white px-5 py-2.5 text-center hover:bg-primary transition duration-300"
                   >
                     Add to cart
                   </button>

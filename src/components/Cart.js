@@ -34,17 +34,14 @@ function Component() {
 
   return (
     <Layout>
-      <div className="container mx-auto mt-10 p-6 bg-secondary shadow-md rounded-lg">
+      <div className="container mx-auto mt-10 p-6">
         <h1 className="text-3xl font-bold text-text text-center mb-8">
           Mi carrito
         </h1>
-        <div className="flex flex-col md:flex-row gap-8">
-          <div className="w-full md:w-2/3">
+        <div className="flex flex-col justify-center md:flex-row gap-8">
+          <div className="w-full md:w-1/3">
             {cart.map((el, index) => (
-              <div
-                key={index}
-                className="flex gap-4 mb-6 p-4 border border-primary rounded-lg shadow-sm bg-gray-200"
-              >
+              <div key={index} className="flex gap-4 mb-6 p-4">
                 <img
                   src={el.image}
                   alt={el.name}
@@ -57,7 +54,7 @@ function Component() {
               </div>
             ))}
           </div>
-          <div className="w-full md:w-1/3 flex flex-col items-center bg-gray-100 p-6 rounded-lg shadow-md">
+          <div className="w-full md:w-1/3 flex flex-col flex-wrap content-center items-center p-6 rounded-lg shadow-md h-96">
             <p className="text-xl font-semibold text-text mb-4">
               Precio total:{" "}
               <span className="font-bold text-primary">
