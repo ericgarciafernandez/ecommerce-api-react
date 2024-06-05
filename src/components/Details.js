@@ -24,7 +24,7 @@ function Component() {
 
   function addProduct() {
     increaseCart();
-    addProductCart(product);
+    addProductCart(product[0]);
     setTotalPrice(product[0].price);
   }
 
