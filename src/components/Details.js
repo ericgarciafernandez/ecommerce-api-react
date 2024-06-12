@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import Layout from "./Layout";
 import useCartStore from "../store/cart";
 
-function Component() {
-  const [product, setProduct] = useState();
+function Details() {
+  const [product, setProduct] = useState(null);
   const increaseCart = useCartStore((state) => state.increaseCart);
   const addProductCart = useCartStore((state) => state.addProductCart);
   const setTotalPrice = useCartStore((state) => state.setTotalPrice);
@@ -22,10 +22,12 @@ function Component() {
     }
   }
 
-  function addProduct() {
-    increaseCart();
-    addProductCart(product[0]);
-    setTotalPrice(product[0].price);
+  function addProductToCart() {
+    if (product) {
+      increaseCart();
+      addProductCart(product[0]);
+      setTotalPrice(product[0].price);
+    }
   }
 
   useEffect(() => {
@@ -41,22 +43,26 @@ function Component() {
               key={el.id}
               className="flex flex-col md:flex-row items-center gap-8"
             >
-              <div className="w-1/3 h-96 flex flex-wrap justify-center content-center mx-auto rounded-lg shadow-xl bg-white">
-                <img src={el.image} alt={el.name} />
+              <div className="w-full md:w-1/3 h-96 flex items-center justify-center mx-auto rounded-lg shadow-xl bg-white">
+                <img
+                  src={el.image}
+                  alt={el.name}
+                  className="max-h-full max-w-full"
+                />
               </div>
 
-              <div className="flex flex-col w-full md:w-1/3">
+              <div className="flex flex-col w-full md:w-2/3">
                 <h2 className="text-3xl font-bold text-text mb-4">{el.name}</h2>
                 <p className="text-text mb-6">{el.description}</p>
-                <div className="flex items-center justify-start gap-x-12">
+                <div className="flex items-center justify-between gap-4 md:gap-12">
                   <span className="text-2xl font-bold text-primary">
                     {el.price}€
                   </span>
                   <button
-                    onClick={addProduct}
+                    onClick={addProductToCart}
                     className="text-sm rounded-lg bg-accent text-white px-5 py-2.5 text-center hover:bg-primary transition duration-300"
                   >
-                    Add to cart
+                    Añadir al carrito
                   </button>
                 </div>
               </div>
@@ -70,4 +76,4 @@ function Component() {
   );
 }
 
-export default Component;
+export default Details;

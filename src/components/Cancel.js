@@ -1,7 +1,7 @@
-function Component() {
+function Cancel() {
     return (
         <h1>Cancel</h1>
     )
 }
 
-export default Component;
+export default Cancel;

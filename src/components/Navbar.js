@@ -2,14 +2,17 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import useCartStore from "../store/cart";
 
-function Component() {
+function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const countCart = useCartStore((state) => state.countCart);
+
   const handleDropDown = () => {
     setIsOpen(!isOpen);
   };
+
   const linkClass =
     "block py-2 px-3 text-gray-900 border-b-2 border-secondary md:border-0";
+
   return (
     <nav className="bg-background">
       <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
@@ -17,10 +20,9 @@ function Component() {
           to={"/"}
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <img src="/plant.svg" className="h-6" />
+          <img src="/plant.svg" className="h-6" alt="Logo" />
         </Link>
         <button
-          data-collapse-toggle="mega-menu-full-cta"
           type="button"
           className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-text rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
           aria-controls="mega-menu-full-cta"
@@ -46,9 +48,9 @@ function Component() {
         </button>
         <div
           id="mega-menu-full-cta"
-          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
+          className={`w-full md:flex md:w-auto md:order-1 ${
             isOpen ? "block" : "hidden"
-          } `}
+          }`}
         >
           <ul className="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
             <li>
@@ -62,7 +64,7 @@ function Component() {
               </Link>
             </li>
             <li>
-              <Link to={"/categorias/jardín"} className={linkClass}>
+              <Link to={"/categorias/jardin"} className={linkClass}>
                 Jardín
               </Link>
             </li>
@@ -71,15 +73,14 @@ function Component() {
                 Hierbas
               </Link>
             </li>
-            <li>
-              <a href="#" className={linkClass}>
-                <img src="/busqueda.svg" className="h-6" />
-              </a>
-            </li>
-            <li>
+            <li className="relative">
               <Link to={"/carrito"} className={linkClass}>
-                <img src="/carrito.svg" className="h-6" />
-                <p className="text-center absolute">{countCart}</p>
+                <img src="/carrito.svg" className="h-6" alt="Carrito" />
+                {countCart > 0 && (
+                  <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">
+                    {countCart}
+                  </span>
+                )}
               </Link>
             </li>
           </ul>
@@ -89,4 +90,4 @@ function Component() {
   );
 }
 
-export default Component;
+export default Navbar;

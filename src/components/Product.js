@@ -4,7 +4,7 @@ function Component({ id, name, price, image }) {
   return (
     <Link
       to={`/detalles/${id}`}
-      className="block w-96 transform transition duration-300 hover:scale-105"
+      className="block transform transition duration-300 hover:scale-105"
     >
       <div className="bg-white flex flex-wrap justify-center content-center rounded-2xl h-96 shadow-xl">
         <img src={image} alt={name} className="bg-white h-64" />

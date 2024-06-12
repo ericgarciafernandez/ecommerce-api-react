@@ -1,4 +1,6 @@
-function Component() {
+import { Link } from "react-router-dom";
+
+function Banner() {
   return (
     <section>
       <div className=" grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
@@ -11,9 +13,14 @@ function Component() {
             en un oasis verde. Experimenta la tranquilidad y belleza de la
             naturaleza en cada esquina de tu espacio.
           </p>
-          <button className="text-xl rounded-lg bg-accent text-white px-5 py-2.5 text-center transition duration-300">
-            Ver plantas
-          </button>
+          <Link
+            to={"/categorias/interior"}
+            className="flex items-center space-x-3 rtl:space-x-reverse"
+          >
+            <button className="text-xl rounded-lg bg-accent text-white px-5 py-2.5 text-center transition duration-300">
+              Ver plantas
+            </button>{" "}
+          </Link>
         </div>
         <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
           <img src="/mockup.png" alt="mockup" className="h-auto"></img>
@@ -23,4 +30,4 @@ function Component() {
   );
 }
 
-export default Component;
+export default Banner;
