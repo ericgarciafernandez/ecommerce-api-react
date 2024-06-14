@@ -61,9 +61,7 @@ function Cart() {
           <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col justify-around items-center p-6 h-96 bg-white rounded-lg shadow-lg">
             <p className="text-xl font-semibold text-text mb-4">
               Precio total:{" "}
-              <span className="font-bold text-primary">
-                {parseFloat(totalPrice).toFixed(2)}€
-              </span>
+              <span className="font-bold text-primary">{totalPrice}€</span>
             </p>
             <p className="text-sm text-center text-gray-600">
               Al hacer clic en "Pagar", aceptas los términos de privacidad y

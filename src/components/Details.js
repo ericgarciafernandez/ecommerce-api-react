@@ -26,7 +26,7 @@ function Details() {
     if (product) {
       increaseCart();
       addProductCart(product[0]);
-      setTotalPrice(product[0].price);
+      setTotalPrice(parseFloat(product[0].price));
     }
   }
 
