@@ -62,7 +62,7 @@ function Cart() {
             <p className="text-xl font-semibold text-text mb-4">
               Precio total:{" "}
               <span className="font-bold text-primary">
-                {totalPrice.toFixed(2)}€
+                {parseFloat(totalPrice).toFixed(2)}€
               </span>
             </p>
             <p className="text-sm text-center text-gray-600">
